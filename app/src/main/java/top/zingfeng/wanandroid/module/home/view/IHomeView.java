@@ -34,7 +34,15 @@ public interface IHomeView {
      */
     void setHomeNormalArticleError(String errorMsg);
 
+    /**
+     * 设置轮播图数据
+     * @param bannerBean 数据
+     */
     void setBanner(BannerBean bannerBean);
 
+    /**
+     * 设置轮播图失败数据
+     * @param errorMsg 数据
+     */
     void setBannerError(String errorMsg);
 }

@@ -1,16 +1,12 @@
 package top.zingfeng.wanandroid.http.bean;
 
-import androidx.core.text.HtmlCompat;
-
 import java.util.List;
-
-import static androidx.core.text.HtmlCompat.FROM_HTML_MODE_LEGACY;
 
 /**
  * @author zingfeng
- * @date On 2021/2/9
+ * @date On 2021/2/12
  */
-public class NormalArticleBean {
+public class SquareArticleBean {
 
     private DataBean data;
     private int errorCode;
@@ -110,36 +106,36 @@ public class NormalArticleBean {
             /**
              * apkLink :
              * audit : 1
-             * author : xuexiangjys
+             * author :
              * canEdit : false
-             * chapterId : 539
-             * chapterName : 未分类
+             * chapterId : 494
+             * chapterName : 广场
              * collect : false
              * courseId : 13
-             * desc : 一个基于@Page注解非常方便的fragment页面框架
+             * desc :
              * descMd :
-             * envelopePic : https://www.wanandroid.com/blogimgs/bae9d161-a5ee-4e2c-bbee-7b50540b5dd5.png
+             * envelopePic :
              * fresh : true
              * host :
-             * id : 17233
-             * link : https://www.wanandroid.com/blog/show/2936
-             * niceDate : 10小时前
-             * niceShareDate : 10小时前
+             * id : 17261
+             * link : https://blog.csdn.net/Alpha58/article/details/109108691?utm_medium=distribute.wap_feed.none-task-blog-cf-3.nonecase&amp;depth_1-utm_source=distribute.wap_feed.none-task-blog-cf-3.nonecase
+             * niceDate : 2小时前
+             * niceShareDate : 2小时前
              * origin :
              * prefix :
-             * projectLink : https://github.com/xuexiangjys/XPage
-             * publishTime : 1612801617000
-             * realSuperChapterId : 293
+             * projectLink :
+             * publishTime : 1613123257000
+             * realSuperChapterId : 493
              * selfVisible : 0
-             * shareDate : 1612801617000
-             * shareUser :
-             * superChapterId : 294
-             * superChapterName : 开源项目主Tab
-             * tags : [{"name":"项目","url":"/project/list/1?cid=539"}]
-             * title : XPage 一个非常方便的fragment页面框架
+             * shareDate : 1613123257000
+             * shareUser : larkunt
+             * superChapterId : 494
+             * superChapterName : 广场Tab
+             * tags : []
+             * title : android studio4.1问题记录
              * type : 0
-             * userId : -1
-             * visible : 1
+             * userId : 83159
+             * visible : 0
              * zan : 0
              */
 
@@ -175,7 +171,7 @@ public class NormalArticleBean {
             private int userId;
             private int visible;
             private int zan;
-            private List<TagsBean> tags;
+            private List<?> tags;
 
             public String getApkLink() {
                 return apkLink;
@@ -394,7 +390,7 @@ public class NormalArticleBean {
             }
 
             public String getTitle() {
-                return HtmlCompat.fromHtml(title, FROM_HTML_MODE_LEGACY).toString();
+                return title;
             }
 
             public void setTitle(String title) {
@@ -433,38 +429,12 @@ public class NormalArticleBean {
                 this.zan = zan;
             }
 
-            public List<TagsBean> getTags() {
+            public List<?> getTags() {
                 return tags;
             }
 
-            public void setTags(List<TagsBean> tags) {
+            public void setTags(List<?> tags) {
                 this.tags = tags;
-            }
-
-            public static class TagsBean {
-                /**
-                 * name : 项目
-                 * url : /project/list/1?cid=539
-                 */
-
-                private String name;
-                private String url;
-
-                public String getName() {
-                    return name;
-                }
-
-                public void setName(String name) {
-                    this.name = name;
-                }
-
-                public String getUrl() {
-                    return url;
-                }
-
-                public void setUrl(String url) {
-                    this.url = url;
-                }
             }
         }
     }

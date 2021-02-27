@@ -5,6 +5,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import top.zingfeng.wanandroid.http.bean.BannerBean;
 import top.zingfeng.wanandroid.http.bean.NormalArticleBean;
+import top.zingfeng.wanandroid.http.bean.SquareArticleBean;
 import top.zingfeng.wanandroid.http.bean.TopArticleBean;
 
 /**
@@ -34,4 +35,12 @@ public interface ApiService {
      */
     @GET(value = "/banner/json")
     Call<BannerBean> bannerData();
+
+    /**
+     * 请求首页文章
+     * @param page 页码
+     * @return 返回请求数据
+     */
+    @GET(value = "/user_article/list/{page}/json")
+    Call<SquareArticleBean> squareArticle(@Path(value = "page") Integer page);
 }

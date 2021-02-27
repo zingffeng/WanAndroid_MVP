@@ -8,12 +8,6 @@ import java.util.List;
  */
 public class TopArticleBean {
 
-    /**
-     * data : [{}]
-     * errorCode : 0
-     * errorMsg :
-     */
-
     private int errorCode;
     private String errorMsg;
     private List<DataBean> data;
@@ -43,41 +37,6 @@ public class TopArticleBean {
     }
 
     public static class DataBean {
-        /**
-         * apkLink :
-         * audit : 1
-         * author : 扔物线
-         * canEdit : false
-         * chapterId : 249
-         * chapterName : 干货资源
-         * collect : false
-         * courseId : 13
-         * desc :
-         * descMd :
-         * envelopePic :
-         * fresh : true
-         * host :
-         * id : 12554
-         * link : http://i0k.cn/59VQB
-         * niceDate : 刚刚
-         * niceShareDate : 2020-03-23 16:36
-         * origin :
-         * prefix :
-         * projectLink :
-         * publishTime : 1614441600000
-         * realSuperChapterId : 248
-         * selfVisible : 0
-         * shareDate : 1584952597000
-         * shareUser :
-         * superChapterId : 249
-         * superChapterName : 干货资源
-         * tags : []
-         * title : Android 面试黑洞&mdash;&mdash;当我按下 Home 键再切回来，会发生什么？
-         * type : 1
-         * userId : -1
-         * visible : 1
-         * zan : 0
-         */
 
         private String apkLink;
         private int audit;
