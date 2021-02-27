@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">玩安卓</string>
+
+    <string name="hello_world">Hello World</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="home">首页</string>
+    <string name="square">广场</string>
+    <string name="system">体系</string>
+    <string name="mine">我的</string>
+    <string name="project">项目</string>
+
+    <string name="not_to_login">未登录</string>
+    <string name="level_hint">等级：</string>
+    <string name="line">--</string>
+    <string name="rank_hint">排行：</string>
+    <string name="my_coins">我的积分</string>
+    <string name="my_collects">我的收藏</string>
+    <string name="my_shares">我的分享</string>
+    <string name="system_setting">系统设置</string>
+    <string name="logout">退出登录</string>
+
+    <string name="new_">New</string>
+    <string name="top_">Top</string>
+    <string name="published_site">本站发布</string>
+    <string name="author_hint">作者：</string>
+    <string name="sharer_hint">分享人：</string>
+    <string name="sort_hint">分类：</string>
+    <string name="time_hint">时间：</string>
+
+    <string name="navigation">导航</string>
+
+    <string name="user_login">用户登录</string>
+    <string name="please_wanandroid_login">请使用WanAndroid账号登录</string>
+    <string name="account">账号</string>
+    <string name="password">密码</string>
+    <string name="input_password_again">再输入一次密码</string>
+    <string name="no_have_account_goto_registered">还没有账号？去注册</string>
+
+    <string name="registered">注册</string>
+    <string name="user_registered">用户注册</string>
+    <string name="only_registered_can_login">只有注册后才能进行登录操作！</string>
+    <string name="have_account_goto_login">已有账号？去登录</string>
+
+    <string name="login">登录</string>
+    <string name="login_successful">登录成功</string>
+
+    <string name="sure_to_logout">确认退出登录？</string>
+    <string name="cancel">取消</string>
+    <string name="sure">确认</string>
+
+    <string name="start_search">开始搜索吧</string>
+    <string name="hot_search">热门搜索</string>
+    <string name="clear">清空</string>
+    <string name="history_search">历史搜索</string>
+    <string name="no_data">暂无数据</string>
+
+    <string name="this_is_the_last">这是最后一个</string>
+
+</resources>
