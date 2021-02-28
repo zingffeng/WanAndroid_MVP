@@ -1,4 +1,4 @@
-package top.zingfeng.wanandroid.module.home.model;
+package top.zingfeng.wanandroid.interfaces;
 
 /**
  * @author zingfeng

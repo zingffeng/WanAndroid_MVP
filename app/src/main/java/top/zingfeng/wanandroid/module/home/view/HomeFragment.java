@@ -61,8 +61,8 @@ public class HomeFragment extends BaseFragment implements IHomeView {
     @Override
     protected void initConfig(View view) {
         ButterKnife.bind(this, view);
-        initRvTopArticle();
-        initRvNormalArticle();
+        initRvAndAdTopArticle();
+        initRvAndAdNormalArticle();
     }
 
     @Override
@@ -75,13 +75,13 @@ public class HomeFragment extends BaseFragment implements IHomeView {
 
     @Override
     protected void initEvent() {
-        setupPullRefresh();
+        setupPullRefreshEvent();
     }
 
     /**
      * 初始化顶置Adapter适配器和RecyclerView
      */
-    private void initRvTopArticle(){
+    private void initRvAndAdTopArticle(){
         LinearLayoutManager topManager = new LinearLayoutManager(getBaseContext());
         topManager.setOrientation(RecyclerView.VERTICAL);
         mTopArticleAdapter = new HomeTopArticleAdapter(R.layout.item_home_top_article, null);
@@ -92,7 +92,7 @@ public class HomeFragment extends BaseFragment implements IHomeView {
     /**
      * 初始化顶置Adapter适配器和RecyclerView
      */
-    private void initRvNormalArticle(){
+    private void initRvAndAdNormalArticle(){
         LinearLayoutManager normalManager = new LinearLayoutManager(getBaseContext());
         normalManager.setOrientation(RecyclerView.VERTICAL);
         mNormalArticleAdapter = new HomeNormalArticleAdapter(R.layout.item_home_normal_article, null);
@@ -103,21 +103,22 @@ public class HomeFragment extends BaseFragment implements IHomeView {
     /**
      * 设置下拉刷新控件
      */
-    private void setupPullRefresh(){
+    private void setupPullRefreshEvent(){
         mSmartRefreshLayout.setRefreshHeader(new MaterialHeader(getBaseContext()));
         mSmartRefreshLayout.setRefreshFooter(new ClassicsFooter(getBaseContext()));
         mSmartRefreshLayout.setOnRefreshListener(refreshLayout -> {
+            page = 0;
             mHomePresenter.getHomeTopArticle();
             mHomePresenter.getHomeNormalArticle(page);
         });
         mSmartRefreshLayout.setOnLoadMoreListener(refreshLayout -> {
+            page = page + 1;
             mHomePresenter.getHomeNormalArticle(page);
         });
     }
 
     @Override
     public void setHomeTopArticle(TopArticleBean topArticleBean) {
-        page = 0;
         mTopArticleAdapter.setNewInstance(topArticleBean.getData());
         mTopArticleAdapter.notifyDataSetChanged();
         mSmartRefreshLayout.finishRefresh();
@@ -132,11 +133,11 @@ public class HomeFragment extends BaseFragment implements IHomeView {
 
     @Override
     public void setHomeNormalArticle(NormalArticleBean normalArticle) {
-        page = page + 1;
         mNormalArticleAdapter.addData(normalArticle.getData().getDatas());
         mNormalArticleAdapter.notifyDataSetChanged();
         mSmartRefreshLayout.finishRefresh();
         mSmartRefreshLayout.finishLoadMore();
+
     }
 
     @Override
@@ -164,7 +165,7 @@ public class HomeFragment extends BaseFragment implements IHomeView {
 //                });
             }
         }).addBannerLifecycleObserver(getViewLifecycleOwner()) //添加生命周期观察者
-                .setIndicator(new CircleIndicator(getBaseContext()));;
+                .setIndicator(new CircleIndicator(getBaseContext()));
     }
 
     @Override
