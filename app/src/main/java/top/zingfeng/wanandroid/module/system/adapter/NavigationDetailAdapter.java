@@ -40,11 +40,11 @@ public class NavigationDetailAdapter extends BaseQuickAdapter<NavigationBean.Dat
 
         mNavigationTypeNameAdapter.setOnItemClickListener((adapter, view, position) -> {
             NavigationBean.DataBean.ArticlesBean articlesBean = dataBean.getArticles().get(position);
-//            ARouter.getInstance()
-//                    .build("/view/ArticleDetailActivity")
-//                    .withString("url", articlesBean.getLink())
-//                    .withString("title", articlesBean.getTitle())
-//                    .navigation();
+            ARouter.getInstance()
+                    .build("/module/detail/ArticleDetailActivity")
+                    .withString("url", articlesBean.getLink())
+                    .withString("title", articlesBean.getTitle())
+                    .navigation();
         });
     }
 }

@@ -123,6 +123,13 @@ public class HomeFragment extends BaseFragment implements IHomeView {
         mTopArticleAdapter.notifyDataSetChanged();
         mSmartRefreshLayout.finishRefresh();
         mSmartRefreshLayout.finishLoadMore();
+        mTopArticleAdapter.setOnItemClickListener((adapter, view, position) -> {
+            ARouter.getInstance()
+                    .build("/module/detail/ArticleDetailActivity")
+                    .withString("url", topArticleBean.getData().get(position).getLink())
+                    .withString("title", topArticleBean.getData().get(position).getTitle())
+                    .navigation();
+        });
     }
 
     @Override
@@ -137,7 +144,13 @@ public class HomeFragment extends BaseFragment implements IHomeView {
         mNormalArticleAdapter.notifyDataSetChanged();
         mSmartRefreshLayout.finishRefresh();
         mSmartRefreshLayout.finishLoadMore();
-
+        mNormalArticleAdapter.setOnItemClickListener((adapter, view, position) -> {
+            ARouter.getInstance()
+                    .build("/module/detail/ArticleDetailActivity")
+                    .withString("url", normalArticle.getData().getDatas().get(position).getLink())
+                    .withString("title", normalArticle.getData().getDatas().get(position).getTitle())
+                    .navigation();
+        });
     }
 
     @Override

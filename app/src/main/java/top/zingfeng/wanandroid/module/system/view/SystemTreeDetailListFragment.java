@@ -3,9 +3,13 @@ package top.zingfeng.wanandroid.module.system.view;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.MaterialHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
@@ -123,6 +127,13 @@ public class SystemTreeDetailListFragment extends BaseFragment implements ISyste
         mSystemArticleAdapter.addData(systemTreeList.getData().getDatas());
         mSrlRefresh.finishRefresh();
         mSrlRefresh.finishLoadMore();
+        mSystemArticleAdapter.setOnItemClickListener((adapter, view, position) -> {
+            ARouter.getInstance()
+                    .build("/module/detail/ArticleDetailActivity")
+                    .withString("url", systemTreeList.getData().getDatas().get(position).getLink())
+                    .withString("title", systemTreeList.getData().getDatas().get(position).getLink())
+                    .navigation();
+        });
     }
 
     @Override

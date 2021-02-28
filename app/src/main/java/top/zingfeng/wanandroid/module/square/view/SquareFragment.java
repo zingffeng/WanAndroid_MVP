@@ -5,6 +5,7 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.MaterialHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
@@ -89,7 +90,13 @@ public class SquareFragment extends BaseFragment implements ISquareView{
         mSquareArticleAdapter.notifyDataSetChanged();
         mSrlRefresh.finishRefresh();
         mSrlRefresh.finishLoadMore();
-
+        mSquareArticleAdapter.setOnItemClickListener((adapter, view, position) -> {
+            ARouter.getInstance()
+                    .build("/module/detail/ArticleDetailActivity")
+                    .withString("url", squareArticle.getData().getDatas().get(position).getLink())
+                    .withString("title", squareArticle.getData().getDatas().get(position).getTitle())
+                    .navigation();
+        });
     }
 
     @Override
