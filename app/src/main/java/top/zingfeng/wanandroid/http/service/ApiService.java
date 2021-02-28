@@ -7,6 +7,8 @@ import retrofit2.http.Query;
 import top.zingfeng.wanandroid.http.bean.BannerBean;
 import top.zingfeng.wanandroid.http.bean.NavigationBean;
 import top.zingfeng.wanandroid.http.bean.NormalArticleBean;
+import top.zingfeng.wanandroid.http.bean.ProjectBean;
+import top.zingfeng.wanandroid.http.bean.ProjectListBean;
 import top.zingfeng.wanandroid.http.bean.SquareArticleBean;
 import top.zingfeng.wanandroid.http.bean.SystemTreeListBean;
 import top.zingfeng.wanandroid.http.bean.SystemTreeBean;
@@ -69,5 +71,22 @@ public interface ApiService {
      * @return 返回请求数据
      */
     @GET(value = "/navi/json")
-    Call<NavigationBean> getNavigationList();
+    Call<NavigationBean> navigationList();
+
+    /**
+     * 请求项目数据
+     * @return 返回数据
+     */
+    @GET(value = "/project/tree/json")
+    Call<ProjectBean> projectData();
+
+    /**
+     * 请求项目文章具体数据
+     * @param page 页数
+     * @param cid cid
+     * @return 返回数据
+     */
+    @GET(value = "/project/list/{page}/json")
+    Call<ProjectListBean> projectArticleListData(@Path(value = "page") Integer page, @Query(value = "cid") Integer cid);
+
 }

@@ -15,7 +15,7 @@ import top.zingfeng.wanandroid.interfaces.DataCallback;
 public class NavigationModel {
 
     public static void requestNavigationListData(DataCallback<NavigationBean> callback){
-        Call<NavigationBean> navigationList = BaseRetrofit.getRetrofit().create(ApiService.class).getNavigationList();
+        Call<NavigationBean> navigationList = BaseRetrofit.getRetrofit().create(ApiService.class).navigationList();
         navigationList.enqueue(new Callback<NavigationBean>() {
             @Override
             public void onResponse(Call<NavigationBean> call, Response<NavigationBean> response) {

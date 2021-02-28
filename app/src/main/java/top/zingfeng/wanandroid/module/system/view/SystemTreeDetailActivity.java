@@ -30,6 +30,9 @@ import top.zingfeng.wanandroid.module.system.adapter.SystemTreeDetailPagerAdapte
 @Route(path = "/module/system/view/SystemTreeDetailActivity")
 public class SystemTreeDetailActivity extends BaseActivity {
 
+    /**
+     * 传入的参数值
+     */
     @Autowired
     SystemTreeBean.DataBean data;
 
