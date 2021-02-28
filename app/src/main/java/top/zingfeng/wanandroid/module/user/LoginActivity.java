@@ -10,7 +10,7 @@ import top.zingfeng.wanandroid.base.BaseActivity;
  * @author zingfeng
  * @date On 2021/2/26
  */
-@Route(path = "/view/LoginActivity")
+@Route(path = "/module/user/view/LoginActivity")
 public class LoginActivity extends BaseActivity {
 
     @Override
