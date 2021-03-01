@@ -39,6 +39,15 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.tv_nav_title)
     TextView mTvNavTitle;
 
+    @BindView(R.id.iv_search)
+    ImageView mIvSearch;
+    @OnClick(R.id.iv_search)
+    void clickIvSearch(){
+        ARouter.getInstance()
+                .build("/module/search/view/SearchActivity")
+                .navigation();
+    }
+
     @BindView(R.id.bnv_nav)
     BottomNavigationView mBnvNav;
 

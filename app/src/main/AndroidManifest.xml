@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".module.detail.view.ArticleDetailActivity"></activity>
+        <activity android:name=".module.search.view.SearchDetailActivity"></activity>
+        <activity android:name=".module.search.view.SearchActivity" />
+        <activity android:name=".module.detail.view.ArticleDetailActivity" />
         <activity android:name=".module.system.view.SystemTreeDetailActivity" />
         <activity android:name=".module.user.LoginActivity" />
         <activity android:name=".ui.MainActivity">

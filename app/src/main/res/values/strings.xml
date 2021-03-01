@@ -55,6 +55,8 @@
     <string name="history_search">历史搜索</string>
     <string name="no_data">暂无数据</string>
 
+    <string name="search_content">搜索内容</string>
+
     <string name="this_is_the_last">这是最后一个</string>
 
 </resources>

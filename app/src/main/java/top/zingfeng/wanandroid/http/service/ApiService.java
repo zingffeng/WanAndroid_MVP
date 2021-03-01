@@ -2,13 +2,16 @@ package top.zingfeng.wanandroid.http.service;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import top.zingfeng.wanandroid.http.bean.BannerBean;
+import top.zingfeng.wanandroid.http.bean.SearchHotKeyBean;
 import top.zingfeng.wanandroid.http.bean.NavigationBean;
 import top.zingfeng.wanandroid.http.bean.NormalArticleBean;
 import top.zingfeng.wanandroid.http.bean.ProjectBean;
 import top.zingfeng.wanandroid.http.bean.ProjectListBean;
+import top.zingfeng.wanandroid.http.bean.SearchQueryDataBean;
 import top.zingfeng.wanandroid.http.bean.SquareArticleBean;
 import top.zingfeng.wanandroid.http.bean.SystemTreeListBean;
 import top.zingfeng.wanandroid.http.bean.SystemTreeBean;
@@ -89,4 +92,19 @@ public interface ApiService {
     @GET(value = "/project/list/{page}/json")
     Call<ProjectListBean> projectArticleListData(@Path(value = "page") Integer page, @Query(value = "cid") Integer cid);
 
+    /**
+     * 请求热门搜索
+     * @return 返回数据
+     */
+    @GET(value = "/hotkey/json")
+    Call<SearchHotKeyBean> searchHotKeyList();
+
+    /**
+     * 搜索关键词
+     * @param page 页数
+     * @param k 字段
+     * @return 数据
+     */
+    @POST(value = "/article/query/{page}/json")
+    Call<SearchQueryDataBean> searchQueryData(@Path(value = "page") Integer page, @Query(value = "k") String k);
 }
