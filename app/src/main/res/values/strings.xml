@@ -54,6 +54,7 @@
     <string name="clear">清空</string>
     <string name="history_search">历史搜索</string>
     <string name="no_data">暂无数据</string>
+    <string name="please_input_data">请输入数据！</string>
 
     <string name="search_content">搜索内容</string>
 

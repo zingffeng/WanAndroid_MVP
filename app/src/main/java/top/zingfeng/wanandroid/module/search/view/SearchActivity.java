@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -66,12 +67,16 @@ public class SearchActivity extends BaseActivity implements ISearchView {
     ImageView mIvSearch;
     @OnClick(R.id.iv_search)
     void clickIvSearch(){
-        String content = mEtSearchContent.getText().toString();
-        save2Database(content);
-        ARouter.getInstance()
-                .build("/module/search/view/SearchDetailActivity")
-                .withString("titleContent", content)
-                .navigation();
+        if (mEtSearchContent.getText().toString().isEmpty()){
+            Toast.makeText(getBaseContext(), getText(R.string.please_input_data), Toast.LENGTH_SHORT).show();
+        }else {
+            String content = mEtSearchContent.getText().toString();
+            save2Database(content);
+            ARouter.getInstance()
+                    .build("/module/search/view/SearchDetailActivity")
+                    .withString("titleContent", content)
+                    .navigation();
+        }
     }
 
     @BindView(R.id.rv_hot_key_search)
