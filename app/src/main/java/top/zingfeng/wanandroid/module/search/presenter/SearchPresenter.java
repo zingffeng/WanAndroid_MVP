@@ -30,4 +30,18 @@ public class SearchPresenter {
             }
         });
     }
+
+    public void getData(){
+        SearchModel.requestHotKeyData(new DataCallback<SearchHotKeyBean>() {
+            @Override
+            public void onSuccess(SearchHotKeyBean data) {
+                miSearchView.setHotKeyData(data);
+            }
+
+            @Override
+            public void onFailure(String errorMag) {
+                miSearchView.setHotKeyDataError(errorMag);
+            }
+        });
+    }
 }

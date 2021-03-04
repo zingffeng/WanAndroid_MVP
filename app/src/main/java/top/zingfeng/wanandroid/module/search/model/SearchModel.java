@@ -14,6 +14,8 @@ import top.zingfeng.wanandroid.interfaces.DataCallback;
  */
 public class SearchModel {
 
+    private static SearchDetailModel searchDetailModel;
+
     public static void requestHotKeyData(DataCallback<SearchHotKeyBean> callback){
         Call<SearchHotKeyBean> hotKey = BaseRetrofit.getRetrofit().create(ApiService.class).searchHotKeyList();
         hotKey.enqueue(new Callback<SearchHotKeyBean>() {
@@ -24,7 +26,7 @@ public class SearchModel {
 
             @Override
             public void onFailure(Call<SearchHotKeyBean> call, Throwable t) {
-                callback.onFailure("requestHotkeyData error");
+                callback.onFailure("requestHotKeyData error");
             }
         });
     }

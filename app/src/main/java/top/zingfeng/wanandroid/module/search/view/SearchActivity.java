@@ -60,14 +60,13 @@ public class SearchActivity extends BaseActivity implements ISearchView {
     protected void initConfig() {
         ButterKnife.bind(this);
         ARouter.getInstance().inject(this);
-        SearchPresenter searchPresenter = new SearchPresenter(this);
-        searchPresenter.getHotKeyData();
-        setupRvAndAdapter();
     }
 
     @Override
     protected void initData() {
-
+        SearchPresenter searchPresenter = new SearchPresenter(this);
+        searchPresenter.getHotKeyData();
+        setupRvAndAdapter();
     }
 
     @Override
