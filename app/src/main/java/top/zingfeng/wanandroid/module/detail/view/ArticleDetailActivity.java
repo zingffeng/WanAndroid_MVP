@@ -2,7 +2,9 @@ package top.zingfeng.wanandroid.module.detail.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
 import com.tencent.smtt.sdk.QbSdk;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebSettings;
@@ -148,13 +151,31 @@ public class ArticleDetailActivity extends BaseActivity {
         }
 
         if(mWvArticleDetail != null){
-
+            String httpHint = "http://";
+            String httpsHint = "https://";
             //该界面打开更多链接
             mWvArticleDetail.setWebViewClient(new WebViewClient() {
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView webView, String s) {
-                    webView.loadUrl(s);
+
+                    if (url.startsWith(httpHint) || url.startsWith(httpsHint)){
+                        webView.loadUrl(s);
+                        return false;
+                    }else {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(intent);
+                    }
                     return true;
+                }
+
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
+                    String redirectUrl = webResourceRequest.getUrl().toString();
+                    if (!redirectUrl.startsWith(httpHint) || !redirectUrl.startsWith(httpsHint)) {
+                        return true;
+                    }
+                    return super.shouldOverrideUrlLoading(webView, webResourceRequest);
+
                 }
             });
 

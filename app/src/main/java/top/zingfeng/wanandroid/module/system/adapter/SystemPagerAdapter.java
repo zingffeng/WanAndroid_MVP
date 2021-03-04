@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import top.zingfeng.wanandroid.base.BaseFragment;
  * @date On 2021/2/28
  * 体系模块中ViewPager适配器
  */
-public class SystemPagerAdapter extends FragmentPagerAdapter {
+public class SystemPagerAdapter extends FragmentStatePagerAdapter {
 
     private List<BaseFragment> mBaseFragments;
     private List<String> mTitles;
