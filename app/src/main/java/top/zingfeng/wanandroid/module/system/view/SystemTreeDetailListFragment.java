@@ -131,7 +131,7 @@ public class SystemTreeDetailListFragment extends BaseFragment implements ISyste
             ARouter.getInstance()
                     .build("/module/detail/ArticleDetailActivity")
                     .withString("url", systemTreeList.getData().getDatas().get(position).getLink())
-                    .withString("title", systemTreeList.getData().getDatas().get(position).getLink())
+                    .withString("title", systemTreeList.getData().getDatas().get(position).getTitle())
                     .navigation();
         });
     }

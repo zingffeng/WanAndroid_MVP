@@ -15,6 +15,7 @@ import com.youth.banner.Banner;
 import com.youth.banner.adapter.BannerImageAdapter;
 import com.youth.banner.holder.BannerImageHolder;
 import com.youth.banner.indicator.CircleIndicator;
+import com.youth.banner.listener.OnBannerListener;
 
 import butterknife.BindView;
 import butterknife.BindViews;
@@ -169,13 +170,14 @@ public class HomeFragment extends BaseFragment implements IHomeView {
                 Glide.with(holder.itemView)
                         .load(data.getImagePath())
                         .into(holder.imageView);
-//                mBanner.setOnBannerListener((data1, position) -> {
-//                    ARouter.getInstance()
-//                            .build("/view/ArticleDetailActivity")
-//                            .withString("title", response.body().getData().get(position1).getTitle())
-//                            .withString("url", response.body().getData().get(position1).getUrl())
-//                            .navigation();
-//                });
+                mBanner.setOnBannerListener((data1, position1) -> {
+
+                    ARouter.getInstance()
+                            .build("/module/detail/ArticleDetailActivity")
+                            .withString("url", data.getUrl())
+                            .withString("title", data.getTitle())
+                            .navigation();
+                });
             }
         }).addBannerLifecycleObserver(getViewLifecycleOwner()) //添加生命周期观察者
                 .setIndicator(new CircleIndicator(getBaseContext()));

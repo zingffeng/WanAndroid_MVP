@@ -1,11 +1,8 @@
 package top.zingfeng.wanandroid.module.detail.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.net.Uri;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -156,26 +153,13 @@ public class ArticleDetailActivity extends BaseActivity {
             //该界面打开更多链接
             mWvArticleDetail.setWebViewClient(new WebViewClient() {
                 @Override
-                public boolean shouldOverrideUrlLoading(WebView webView, String s) {
-
-                    if (url.startsWith(httpHint) || url.startsWith(httpsHint)){
-                        webView.loadUrl(s);
-                        return false;
-                    }else {
-                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                        startActivity(intent);
-                    }
-                    return true;
-                }
-
-                @Override
-                public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
-                    String redirectUrl = webResourceRequest.getUrl().toString();
-                    if (!redirectUrl.startsWith(httpHint) || !redirectUrl.startsWith(httpsHint)) {
+                public boolean shouldOverrideUrlLoading(WebView webView, String url) {
+                    String jianShuScheme = "jianshu://";
+                    if (url.startsWith(jianShuScheme)){
                         return true;
                     }
-                    return super.shouldOverrideUrlLoading(webView, webResourceRequest);
-
+                    webView.loadUrl(url);
+                    return true;
                 }
             });
 
